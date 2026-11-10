@@ -2,183 +2,248 @@
 <html lang="tr" dir="ltr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>NovaMed — Sağlık Turizmi İstanbul (Demo)</title>
   <meta name="description" content="NovaMed İstanbul: saç ekimi, diş estetiği, burun estetiği, lazer göz ve obezite cerrahisi. Her şey dahil sağlık turizmi paketleri." />
-  <meta name="theme-color" content="#0b6e6e" />
+  <meta name="theme-color" content="#f5f3ee" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="demo-bar" data-i18n="ft.demo"></div>
+  <script src="js/icons.js"></script>
 
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a href="#top" class="logo"><span class="logo__mark">+</span>Nova<b>Med</b></a>
+  <header class="hdr" id="top">
+    <div class="hdr__pill">
+      <a href="#top" class="logo" aria-label="NovaMed"><span class="logo__mark"><svg><use href="#i-plus"/></svg></span>novamed</a>
       <nav class="nav" id="nav">
         <a href="#treatments" data-i18n="nav.treatments"></a>
         <a href="#packages" data-i18n="nav.packages"></a>
         <a href="#doctors" data-i18n="nav.doctors"></a>
         <a href="#reviews" data-i18n="nav.reviews"></a>
         <a href="#faq" data-i18n="nav.faq"></a>
-      </nav>
-      <div class="header__actions">
-        <div class="lang" role="group" aria-label="Language">
-          <button data-lang="tr">TR</button>
-          <button data-lang="en">EN</button>
-          <button data-lang="ar">ع</button>
+        <div class="nav__mobile-cta">
+          <a href="#appointment" class="btn btn--dark btn--block" data-i18n="nav.cta"></a>
         </div>
-        <a href="#appointment" class="btn btn--primary btn--sm hide-sm" data-i18n="nav.cta"></a>
-        <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+      <div class="hdr__end">
+        <div class="lang" role="group" aria-label="Language">
+          <button data-lang="tr">TR</button><button data-lang="en">EN</button><button data-lang="ar">ع</button>
+        </div>
+        <a href="#appointment" class="btn btn--dark btn--sm hide-md"><span data-i18n="nav.cta"></span><svg class="i"><use href="#i-arrow-up-right"/></svg></a>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg class="i i--open"><use href="#i-menu"/></svg><svg class="i i--close"><use href="#i-x"/></svg></button>
       </div>
     </div>
   </header>
 
-  <section class="hero">
-    <img class="hero__bg" id="heroImg" alt="" />
-    <div class="hero__overlay"></div>
-    <div class="container hero__inner">
-      <div class="hero__text">
-        <span class="badge" data-i18n="hero.badge"></span>
-        <h1 data-i18n-html="hero.title"></h1>
-        <p data-i18n="hero.sub"></p>
-        <div class="hero__ctas">
-          <a href="#appointment" class="btn btn--primary" data-i18n="hero.cta1"></a>
-          <a href="#" class="btn btn--wa js-wa"><svg class="ico"><use href="#wa"/></svg><span data-i18n="hero.cta2"></span></a>
+  <main>
+    <!-- HERO -->
+    <section class="hero wrap">
+      <div class="hero__copy">
+        <div class="trust">
+          <div class="avatars"><span>JW</span><span>FA</span><span>LM</span><span>OK</span></div>
+          <p data-i18n-html="hero.trust"></p>
+          <span class="trust__stars"><svg class="i"><use href="#i-star"/></svg>4.9</span>
         </div>
-      </div>
-      <form class="quick card" id="quickForm" novalidate>
-        <h3 data-i18n="quick.title"></h3>
-        <select name="treatment" class="js-treatment-select" required></select>
-        <input name="phone" type="tel" required data-i18n-ph="quick.phone" />
-        <button class="btn btn--primary btn--block" data-i18n="quick.send"></button>
-      </form>
-    </div>
-  </section>
+        <h1 class="display" data-i18n-html="hero.title"></h1>
+        <p class="hero__sub" data-i18n="hero.sub"></p>
 
-  <section class="stats">
-    <div class="container stats__grid">
-      <div><b data-count="12000">0</b>+<span data-i18n="stats.patients"></span></div>
-      <div><b data-count="65">0</b>+<span data-i18n="stats.countries"></span></div>
-      <div><b data-count="40">0</b>+<span data-i18n="stats.doctors"></span></div>
-      <div><b>4.9</b>/5<span data-i18n="stats.rating"></span></div>
-    </div>
-  </section>
-
-  <section class="section" id="treatments">
-    <div class="container">
-      <div class="section__head"><span class="kicker" data-i18n="tr.kicker"></span><h2 data-i18n="tr.title"></h2></div>
-      <div class="grid grid--3" id="treatmentGrid"></div>
-    </div>
-  </section>
-
-  <section class="section section--tint">
-    <div class="container">
-      <div class="section__head"><span class="kicker" data-i18n="how.kicker"></span><h2 data-i18n="how.title"></h2></div>
-      <ol class="steps">
-        <li><i>💬</i><h4 data-i18n="how.1t"></h4><p data-i18n="how.1d"></p></li>
-        <li><i>📋</i><h4 data-i18n="how.2t"></h4><p data-i18n="how.2d"></p></li>
-        <li><i>✈️</i><h4 data-i18n="how.3t"></h4><p data-i18n="how.3d"></p></li>
-        <li><i>🏥</i><h4 data-i18n="how.4t"></h4><p data-i18n="how.4d"></p></li>
-        <li><i>🏡</i><h4 data-i18n="how.5t"></h4><p data-i18n="how.5d"></p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="packages">
-    <div class="container">
-      <div class="section__head"><span class="kicker" data-i18n="pk.kicker"></span><h2 data-i18n="pk.title"></h2></div>
-      <div class="grid grid--3 packages" id="packageGrid"></div>
-    </div>
-  </section>
-
-  <section class="section section--tint" id="doctors">
-    <div class="container">
-      <div class="section__head"><span class="kicker" data-i18n="dr.kicker"></span><h2 data-i18n="dr.title"></h2></div>
-      <div class="grid grid--4" id="doctorGrid"></div>
-    </div>
-  </section>
-
-  <section class="section" id="reviews">
-    <div class="container">
-      <div class="section__head"><span class="kicker" data-i18n="rv.kicker"></span><h2 data-i18n="rv.title"></h2></div>
-      <div class="reviews" id="reviewGrid"></div>
-      <div class="accred">
-        <p data-i18n="acc.title"></p>
-        <div class="accred__logos"><span>JCI</span><span>ISO 9001</span><span>ISAPS</span><span>T.C. Sağlık Bakanlığı</span><span>USHAŞ</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tint" id="faq">
-    <div class="container container--narrow">
-      <div class="section__head"><span class="kicker" data-i18n="faq.kicker"></span><h2 data-i18n="faq.title"></h2></div>
-      <div class="faq" id="faqList"></div>
-    </div>
-  </section>
-
-  <section class="section" id="appointment">
-    <div class="container appt">
-      <div class="appt__info">
-        <span class="kicker" data-i18n="form.kicker"></span>
-        <h2 data-i18n="form.title"></h2>
-        <p data-i18n="form.sub"></p>
-        <img id="aboutImg" class="appt__img" alt="" />
-        <ul class="contact">
-          <li>📞 <a href="#" id="ctPhone"></a> <small data-i18n="ct.hours"></small></li>
-          <li>✉️ <a href="#" id="ctMail"></a></li>
-          <li>📍 <span id="ctAddr"></span></li>
+        <form class="finder" id="quickForm" novalidate>
+          <label class="finder__field">
+            <svg class="i"><use href="#i-stethoscope"/></svg>
+            <select name="treatment" class="js-treatment-select" required></select>
+          </label>
+          <label class="finder__field">
+            <svg class="i"><use href="#i-phone"/></svg>
+            <input name="phone" type="tel" required data-i18n-ph="quick.phone" />
+          </label>
+          <button class="btn btn--lime"><span data-i18n="quick.send"></span><svg class="i"><use href="#i-arrow-right"/></svg></button>
+        </form>
+        <ul class="hero__ticks">
+          <li><svg class="i"><use href="#i-clock"/></svg><span data-i18n="hero.chip1"></span></li>
+          <li><svg class="i"><use href="#i-badge-check"/></svg><span data-i18n="hero.chip3"></span></li>
         </ul>
       </div>
-      <form class="card form" id="apptForm" novalidate>
-        <div class="row">
-          <label><span data-i18n="form.name"></span> *<input name="name" required autocomplete="name" /></label>
-          <label><span data-i18n="form.phone"></span> *<input name="phone" type="tel" required autocomplete="tel" placeholder="+44 7700 900000" /></label>
-        </div>
-        <div class="row">
-          <label><span data-i18n="form.email"></span><input name="email" type="email" autocomplete="email" /></label>
-          <label><span data-i18n="form.country"></span><input name="country" autocomplete="country-name" /></label>
-        </div>
-        <div class="row">
-          <label><span data-i18n="form.treatment"></span> *<select name="treatment" class="js-treatment-select" required></select></label>
-          <label><span data-i18n="form.date"></span><input name="date" type="date" /></label>
-        </div>
-        <label><span data-i18n="form.msg"></span><textarea name="message" rows="3"></textarea></label>
-        <label class="check"><input type="checkbox" name="consent" required /> <span data-i18n="form.consent"></span></label>
-        <p class="form__err" id="formErr" data-i18n="form.err" hidden></p>
-        <button class="btn btn--primary btn--block" data-i18n="form.submit"></button>
-      </form>
-    </div>
-  </section>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <a href="#top" class="logo logo--light"><span class="logo__mark">+</span>Nova<b>Med</b></a>
-      <p>© <span id="year"></span> NovaMed Health Tourism. <span data-i18n="ft.rights"></span></p>
-      <p class="muted" data-i18n="ft.demo"></p>
+      <div class="hero__media">
+        <figure class="hero__img hero__img--main"><img id="heroImg" alt="" fetchpriority="high" /></figure>
+        <figure class="hero__img hero__img--sub"><img id="heroImg2" alt="" /></figure>
+        <div class="float-card float-card--a">
+          <span class="float-card__ico"><svg class="i"><use href="#i-star"/></svg></span>
+          <div><b>4.9 / 5</b><small data-i18n="hero.chip2"></small></div>
+        </div>
+        <div class="float-card float-card--b">
+          <span class="float-card__ico float-card__ico--lime"><svg class="i"><use href="#i-message-circle"/></svg></span>
+          <div><b>~4 min</b><small data-i18n="ct.hours"></small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="mq" aria-label="Countries">
+      <p class="mq__label" data-i18n="mq.label"></p>
+      <div class="mq__track"><div class="mq__row" id="mqRow"></div></div>
+    </section>
+
+    <!-- TREATMENTS -->
+    <section class="sec wrap" id="treatments">
+      <div class="sec__head">
+        <div><span class="eyebrow"><i>01</i><span data-i18n="tr.kicker"></span></span><h2 class="display" data-i18n-html="tr.title"></h2></div>
+        <p data-i18n="tr.lead"></p>
+      </div>
+      <div class="bento" id="treatmentGrid"></div>
+    </section>
+
+    <!-- WHY / ALL INCLUSIVE -->
+    <section class="why">
+      <div class="wrap why__inner">
+        <div class="why__copy">
+          <span class="eyebrow eyebrow--light"><i>02</i><span data-i18n="why.kicker"></span></span>
+          <h2 class="display" data-i18n-html="why.title"></h2>
+          <p data-i18n="why.sub"></p>
+          <ul class="why__list">
+            <li><span><svg class="i"><use href="#i-car"/></svg></span><div><b data-i18n="why.1t"></b><small data-i18n="why.1d"></small></div></li>
+            <li><span><svg class="i"><use href="#i-hotel"/></svg></span><div><b data-i18n="why.2t"></b><small data-i18n="why.2d"></small></div></li>
+            <li><span><svg class="i"><use href="#i-languages"/></svg></span><div><b data-i18n="why.3t"></b><small data-i18n="why.3d"></small></div></li>
+            <li><span><svg class="i"><use href="#i-shield-check"/></svg></span><div><b data-i18n="why.4t"></b><small data-i18n="why.4d"></small></div></li>
+            <li><span><svg class="i"><use href="#i-video"/></svg></span><div><b data-i18n="why.5t"></b><small data-i18n="why.5d"></small></div></li>
+          </ul>
+        </div>
+        <figure class="why__img"><img id="cityImg" loading="lazy" alt="Istanbul" /></figure>
+      </div>
+
+      <div class="wrap">
+        <h3 class="why__how display" data-i18n-html="how.title"></h3>
+        <ol class="timeline">
+          <li><span class="timeline__n">01</span><svg class="i"><use href="#i-message-circle"/></svg><b data-i18n="how.1t"></b><small data-i18n="how.1d"></small></li>
+          <li><span class="timeline__n">02</span><svg class="i"><use href="#i-clipboard-list"/></svg><b data-i18n="how.2t"></b><small data-i18n="how.2d"></small></li>
+          <li><span class="timeline__n">03</span><svg class="i"><use href="#i-plane"/></svg><b data-i18n="how.3t"></b><small data-i18n="how.3d"></small></li>
+          <li><span class="timeline__n">04</span><svg class="i"><use href="#i-stethoscope"/></svg><b data-i18n="how.4t"></b><small data-i18n="how.4d"></small></li>
+          <li><span class="timeline__n">05</span><svg class="i"><use href="#i-house"/></svg><b data-i18n="how.5t"></b><small data-i18n="how.5d"></small></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="sec wrap" id="packages">
+      <div class="sec__head">
+        <div><span class="eyebrow"><i>03</i><span data-i18n="pk.kicker"></span></span><h2 class="display" data-i18n-html="pk.title"></h2></div>
+        <p data-i18n="pk.lead"></p>
+      </div>
+      <div class="pkgs" id="packageGrid"></div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section class="sec wrap" id="doctors">
+      <div class="sec__head">
+        <div><span class="eyebrow"><i>04</i><span data-i18n="dr.kicker"></span></span><h2 class="display" data-i18n-html="dr.title"></h2></div>
+        <p data-i18n="dr.lead"></p>
+      </div>
+      <div class="docs" id="doctorGrid"></div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="sec wrap" id="reviews">
+      <div class="sec__head">
+        <div><span class="eyebrow"><i>05</i><span data-i18n="rv.kicker"></span></span><h2 class="display" data-i18n-html="rv.title"></h2></div>
+      </div>
+      <div class="rv">
+        <div class="rv__score">
+          <span class="rv__big">4.9</span>
+          <div class="rv__stars" id="scoreStars"></div>
+          <b data-i18n="rv.score"></b>
+          <small data-i18n="rv.count"></small>
+          <div class="rv__accred"><span>JCI</span><span>ISO 9001</span><span>ISAPS</span><span>USHAŞ</span></div>
+        </div>
+        <div class="rv__list" id="reviewGrid"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec wrap faq-sec" id="faq">
+      <div class="faq-sec__aside">
+        <span class="eyebrow"><i>06</i><span data-i18n="faq.kicker"></span></span>
+        <h2 class="display" data-i18n-html="faq.title"></h2>
+        <div class="help-card">
+          <svg class="i"><use href="#i-message-circle"/></svg>
+          <b data-i18n="faq.more"></b>
+          <p data-i18n="faq.moreD"></p>
+          <a href="#" class="btn btn--wa btn--sm js-wa"><svg class="i"><use href="#wa"/></svg><span data-i18n="hero.cta2"></span></a>
+        </div>
+      </div>
+      <div class="faq" id="faqList"></div>
+    </section>
+
+    <!-- APPOINTMENT -->
+    <section class="wrap" id="appointment">
+      <div class="appt">
+        <div class="appt__info">
+          <span class="eyebrow eyebrow--light"><i>07</i><span data-i18n="form.kicker"></span></span>
+          <h2 class="display" data-i18n-html="form.title"></h2>
+          <p data-i18n="form.sub"></p>
+          <ul class="contact">
+            <li><svg class="i"><use href="#i-phone"/></svg><div><a href="#" id="ctPhone"></a><small data-i18n="ct.hours"></small></div></li>
+            <li><svg class="i"><use href="#i-mail"/></svg><div><a href="#" id="ctMail"></a></div></li>
+            <li><svg class="i"><use href="#i-map-pin"/></svg><div><span id="ctAddr"></span></div></li>
+          </ul>
+        </div>
+        <form class="form" id="apptForm" novalidate>
+          <div class="row">
+            <label class="fl"><input name="name" required autocomplete="name" placeholder=" " /><span><span data-i18n="form.name"></span> *</span></label>
+            <label class="fl"><input name="phone" type="tel" required autocomplete="tel" placeholder=" " /><span><span data-i18n="form.phone"></span> *</span></label>
+          </div>
+          <div class="row">
+            <label class="fl"><input name="email" type="email" autocomplete="email" placeholder=" " /><span data-i18n="form.email"></span></label>
+            <label class="fl"><input name="country" autocomplete="country-name" placeholder=" " /><span data-i18n="form.country"></span></label>
+          </div>
+          <div class="row">
+            <label class="fl fl--static"><select name="treatment" class="js-treatment-select" required></select><span><span data-i18n="form.treatment"></span> *</span></label>
+            <label class="fl fl--static"><input name="date" type="date" /><span data-i18n="form.date"></span></label>
+          </div>
+          <label class="fl"><textarea name="message" rows="3" placeholder=" "></textarea><span data-i18n="form.msg"></span></label>
+          <label class="check"><input type="checkbox" name="consent" required /><span data-i18n="form.consent"></span></label>
+          <p class="form__err" id="formErr" data-i18n="form.err" hidden></p>
+          <button class="btn btn--lime btn--block btn--lg"><span data-i18n="form.submit"></span><svg class="i"><use href="#i-send"/></svg></button>
+          <p class="form__secure"><svg class="i"><use href="#i-lock"/></svg><span data-i18n="form.secure"></span></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr wrap">
+    <div class="ftr__word" aria-hidden="true">novamed</div>
+    <div class="ftr__row">
+      <p><b data-i18n="ft.tag"></b></p>
+      <p>© <span id="year"></span> NovaMed. <span data-i18n="ft.rights"></span></p>
     </div>
+    <p class="ftr__demo"><svg class="i"><use href="#i-sparkles"/></svg><span data-i18n="ft.demo"></span></p>
   </footer>
 
-  <a href="#" class="wa-float js-wa" aria-label="WhatsApp">
-    <span class="wa-float__tip" data-i18n="wa.tip"></span>
-    <svg class="ico"><use href="#wa"/></svg>
-  </a>
+  <!-- Desktop WhatsApp -->
+  <a href="#" class="wa-fab js-wa" aria-label="WhatsApp"><svg class="i"><use href="#wa"/></svg><span data-i18n="wa.tip"></span></a>
+
+  <!-- Mobile action bar -->
+  <div class="mbar">
+    <a href="#" class="mbar__btn" id="mbarCall"><svg class="i"><use href="#i-phone"/></svg><span data-i18n="bar.call"></span></a>
+    <a href="#" class="mbar__btn mbar__btn--wa js-wa"><svg class="i"><use href="#wa"/></svg><span data-i18n="bar.wa"></span></a>
+    <a href="#appointment" class="mbar__btn mbar__btn--lime"><svg class="i"><use href="#i-calendar-days"/></svg><span data-i18n="nav.cta"></span></a>
+  </div>
 
   <div class="modal" id="okModal" hidden>
-    <div class="modal__box card">
-      <div class="modal__icon">✓</div>
+    <div class="modal__box">
+      <div class="modal__icon"><svg class="i"><use href="#i-check"/></svg></div>
       <h3 data-i18n="form.okT"></h3>
       <p data-i18n="form.okD"></p>
-      <a href="#" class="btn btn--wa btn--block" id="okWa"><svg class="ico"><use href="#wa"/></svg><span data-i18n="form.okWa"></span></a>
+      <a href="#" class="btn btn--wa btn--block" id="okWa"><svg class="i"><use href="#wa"/></svg><span data-i18n="form.okWa"></span></a>
       <button class="btn btn--ghost btn--block" id="okClose" data-i18n="form.close"></button>
     </div>
   </div>
 
-  <svg width="0" height="0" style="position:absolute">
-    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.4"/></symbol>
+  <!-- WhatsApp marka logosu (Lucide'da marka ikonları yok) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 9.88 9.89c0 5.45-4.44 9.88-9.89 9.88m8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.48-8.4"/></symbol>
   </svg>
 
   <script src="js/data.js"></script>

@@ -16,11 +16,13 @@ window.CLINIC = {
 
 window.HERO_IMG = IMG("photo-1519494026892-80bbd2d6fd0d", 1800);
 window.ABOUT_IMG = IMG("photo-1586773860418-d37222d8fce3", 1200);
+window.HERO_IMG2 = IMG("photo-1631217868264-e5b90bb7e133", 900);
+window.CITY_IMG = IMG("photo-1524231757912-21f4fe3a7200", 1400);
 
 window.TREATMENTS = [
   {
     id: "hair",
-    icon: "💇",
+    icon: "sprout",
     img: IMG("photo-1560066984-138dadb4c035"),
     price: 1890,
     days: 3,
@@ -34,7 +36,7 @@ window.TREATMENTS = [
   },
   {
     id: "dental",
-    icon: "🦷",
+    icon: "smile",
     img: IMG("photo-1606811971618-4486d14f3f99"),
     price: 2450,
     days: 7,
@@ -48,7 +50,7 @@ window.TREATMENTS = [
   },
   {
     id: "rhino",
-    icon: "👃",
+    icon: "scan-face",
     img: IMG("photo-1579684385127-1ef15d508118"),
     price: 3200,
     days: 7,
@@ -62,7 +64,7 @@ window.TREATMENTS = [
   },
   {
     id: "eye",
-    icon: "👁️",
+    icon: "eye",
     img: IMG("photo-1551076805-e1869033e561"),
     price: 1450,
     days: 3,
@@ -76,7 +78,7 @@ window.TREATMENTS = [
   },
   {
     id: "bariatric",
-    icon: "⚖️",
+    icon: "heart-pulse",
     img: IMG("photo-1576091160550-2173dba999ef"),
     price: 4900,
     days: 5,
@@ -90,7 +92,7 @@ window.TREATMENTS = [
   },
   {
     id: "aesthetic",
-    icon: "✨",
+    icon: "sparkles",
     img: IMG("photo-1570172619644-dfd03ed5d881"),
     price: 3800,
     days: 7,
@@ -208,6 +210,17 @@ window.TESTIMONIALS = [
       tr: "1 yılda 42 kilo verdim. Diyetisyen takibi her şeyi değiştirdi.",
       en: "Lost 42 kg in one year. The dietitian follow-up made all the difference.",
       ar: "فقدت 42 كيلوغراماً في سنة. متابعة أخصائي التغذية صنعت الفارق.",
+    },
+  },
+  {
+    name: "Sanne V.",
+    flag: "🇳🇱",
+    treatment: "rhino",
+    rating: 5,
+    text: {
+      tr: "İlk mesajdan son kontrole kadar aynı koordinatörle konuştum. Sonuç tam istediğim gibi doğal.",
+      en: "I spoke with the same coordinator from the first message to the last check-up. The result looks exactly as natural as I wanted.",
+      ar: "تحدثت مع نفس المنسقة من أول رسالة حتى آخر فحص. النتيجة طبيعية تماماً كما أردت.",
     },
   },
 ];
